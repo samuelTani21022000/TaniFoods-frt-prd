@@ -1,0 +1,576 @@
+{
+  "restaurante": {
+    "nome": "Tani Foods",
+    "endereco": "Av. Doutor José Maria Arbex 744, Recanto dos Pássaros",
+    "telefone": "(14) 998512200"
+  },
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Pastéis Simples",
+      "slug": "pasteis-simples"
+    },
+    {
+      "id": 2,
+      "nome": "Pastéis Especiais",
+      "slug": "pasteis-especiais"
+    },
+    {
+      "id": 3,
+      "nome": "Pastéis Doces",
+      "slug": "pasteis-doces"
+    },
+    {
+      "id": 4,
+      "nome": "Pastéis da Casa",
+      "slug": "pasteis-da-casa"
+    },
+    {
+      "id": 5,
+      "nome": "Hambúrgueres Padrão",
+      "slug": "hamburgueres-padrao"
+    },
+    {
+      "id": 6,
+      "nome": "Lanches com Frango",
+      "slug": "lanches-frango"
+    },
+    {
+      "id": 7,
+      "nome": "Lanches Gigantes",
+      "slug": "lanches-gigantes"
+    },
+    {
+      "id": 8,
+      "nome": "Artesanais",
+      "slug": "artesanais"
+    },
+    {
+      "id": 9,
+      "nome": "Lanches Inovadores",
+      "slug": "lanches-inovadores"
+    },
+    {
+      "id": 10,
+      "nome": "Hot Dogs",
+      "slug": "hot-dogs"
+    },
+    {
+      "id": 11,
+      "nome": "Porções",
+      "slug": "porcoes"
+    },
+    {
+      "id": 12,
+      "nome": "Acompanhamentos",
+      "slug": "acompanhamentos"
+    },
+    {
+      "id": 13,
+      "nome": "Refrigerantes",
+      "slug": "refrigerantes"
+    },
+    {
+      "id": 14,
+      "nome": "Cervejas",
+      "slug": "cervejas"
+    },
+    {
+      "id": 15,
+      "nome": "Água",
+      "slug": "agua"
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "categoria_id": 1,
+      "nome": "Carne",
+      "descricao": "Carne moída e queijo",
+      "preco": 13.00
+    },
+    {
+      "id": 2,
+      "categoria_id": 1,
+      "nome": "Queijo",
+      "descricao": "Mussarela",
+      "preco": 12.00
+    },
+    {
+      "id": 3,
+      "categoria_id": 1,
+      "nome": "Pizza",
+      "descricao": "Mussarela, presunto, tomate e orégano",
+      "preco": 13.00
+    },
+    {
+      "id": 4,
+      "categoria_id": 1,
+      "nome": "Frango",
+      "descricao": "Frango desfiado e queijo",
+      "preco": 13.00
+    },
+    {
+      "id": 5,
+      "categoria_id": 2,
+      "nome": "Pastel Carne Especial 1",
+      "descricao": "Carne com queijo (cheddar/catupiry)",
+      "preco": 18.00
+    },
+    {
+      "id": 6,
+      "categoria_id": 2,
+      "nome": "Pastel Carne Especial 2",
+      "descricao": "Carne, queijo e ovo",
+      "preco": 18.00
+    },
+    {
+      "id": 7,
+      "categoria_id": 2,
+      "nome": "Pastel Frango Especial",
+      "descricao": "Frango, milho e catupiry",
+      "preco": 18.00
+    },
+    {
+      "id": 8,
+      "categoria_id": 2,
+      "nome": "Pastel Pizza à Portuguesa",
+      "descricao": "Presunto, mussarela, milho, ervilha e palmito",
+      "preco": 18.00
+    },
+    {
+      "id": 9,
+      "categoria_id": 2,
+      "nome": "Pastel 3 Queijos",
+      "descricao": "Mussarela, catupiry, cheddar",
+      "preco": 18.00
+    },
+    {
+      "id": 10,
+      "categoria_id": 2,
+      "nome": "Pastel 4 Tomates Queijos",
+      "descricao": "Queijo, requeijão, gorgonzola, cheddar",
+      "preco": 18.00
+    },
+    {
+      "id": 11,
+      "categoria_id": 2,
+      "nome": "Pastel Queijo Cheddar Bacon",
+      "descricao": "Queijo, cheddar e bacon",
+      "preco": 18.00
+    },
+    {
+      "id": 12,
+      "categoria_id": 3,
+      "nome": "Nutella",
+      "descricao": "Nutella ou chocolate",
+      "preco": 16.00
+    },
+    {
+      "id": 13,
+      "categoria_id": 3,
+      "nome": "Misto Doce",
+      "descricao": "Chocolate branco e preto",
+      "preco": 16.00
+    },
+    {
+      "id": 14,
+      "categoria_id": 3,
+      "nome": "Doce de Leite",
+      "descricao": "Doce de leite (opcional queijo)",
+      "preco": 16.00
+    },
+    {
+      "id": 15,
+      "categoria_id": 4,
+      "nome": "Pastel de Costela",
+      "descricao": "Costela com catupiry e muito queijo",
+      "preco": 22.00
+    },
+    {
+      "id": 16,
+      "categoria_id": 4,
+      "nome": "Pastel Gigante",
+      "descricao": "Carne, presunto, queijo, requeijão, bacon, cabreza, tomate, milho, frango e fatias de cheddar",
+      "preco": 35.00
+    },
+    {
+      "id": 17,
+      "categoria_id": 4,
+      "nome": "Pastel de Camarão",
+      "descricao": "Camarão (inteiro) ao alho, cream cheese ou requeijão",
+      "preco": 29.00
+    },
+    {
+      "id": 18,
+      "categoria_id": 4,
+      "nome": "Pastel Calabacon",
+      "descricao": "Muito queijo, calabresa e bacon",
+      "preco": 18.00
+    },
+    {
+      "id": 19,
+      "categoria_id": 4,
+      "nome": "Pastel de Tilápia",
+      "descricao": "Tilápia com queijo e pimenta biquinho",
+      "preco": 23.00
+    },
+    {
+      "id": 20,
+      "categoria_id": 5,
+      "nome": "X-Burguer",
+      "descricao": "Hambúrguer, presunto, muçarela e maionese",
+      "preco": 15.00
+    },
+    {
+      "id": 21,
+      "categoria_id": 5,
+      "nome": "X-Salada",
+      "descricao": "Alface, tomate, hambúrguer, presunto, muçarela, maionese",
+      "preco": 18.90
+    },
+    {
+      "id": 22,
+      "categoria_id": 5,
+      "nome": "X-Bacon",
+      "descricao": "Hambúrguer, muito bacon, muçarela, salada, maionese",
+      "preco": 21.50
+    },
+    {
+      "id": 23,
+      "categoria_id": 5,
+      "nome": "X-Tudo",
+      "descricao": "2 hambúrgueres, presunto, muçarela, salada, calabresa, bacon, ovo, catupiry",
+      "preco": 33.90
+    },
+    {
+      "id": 24,
+      "categoria_id": 5,
+      "nome": "X-Egg",
+      "descricao": "Hambúrguer, queijo, ovo, alface, maionese, tomate",
+      "preco": 15.00
+    },
+    {
+      "id": 25,
+      "categoria_id": 5,
+      "nome": "X-Hot",
+      "descricao": "Hambúrguer, salsicha, queijo, milho, batata palha, ovo, alface e tomate",
+      "preco": 18.30
+    },
+    {
+      "id": 26,
+      "categoria_id": 5,
+      "nome": "X-Calabresa",
+      "descricao": "Hambúrguer, queijo, calabresa, alface, maionese e tomate",
+      "preco": 18.90
+    },
+    {
+      "id": 27,
+      "categoria_id": 6,
+      "nome": "Frango Bacon",
+      "descricao": "Frango, bacon, muçarela e salada",
+      "preco": 20.90
+    },
+    {
+      "id": 28,
+      "categoria_id": 6,
+      "nome": "Frango Salada",
+      "descricao": "Frango, salada, muçarela e milho",
+      "preco": 19.90
+    },
+    {
+      "id": 29,
+      "categoria_id": 6,
+      "nome": "Frango Tudo",
+      "descricao": "Frango, muçarela, milho, bacon, calabresa, ovo, cheddar, salada e cebola",
+      "preco": 32.00
+    },
+    {
+      "id": 30,
+      "categoria_id": 6,
+      "nome": "Frango Máximus",
+      "descricao": "Dobro de frango, presunto, muçarela, salada, milho, bacon, catupiry",
+      "preco": 33.90
+    },
+    {
+      "id": 31,
+      "categoria_id": 7,
+      "nome": "Mega 1k",
+      "descricao": "Pão gigante, 2 hambúrgueres, 2 ovos, 2x presunto, 2x mussarela, calabresa, bacon, frango empanado, salada, catchup, mostarda, maionese, batata palha, cheddar e molho especial",
+      "preco": 39.00
+    },
+    {
+      "id": 32,
+      "categoria_id": 7,
+      "nome": "X-Piraju 2k",
+      "descricao": "Pão gigante, 4 hambúrgueres, presunto, muçarela, salada, 4 ovos, bacon, calabresa, milho, salsicha, tomate, frango grelhado, catchup, mostarda, molho especial, batata palha, cheddar e catupiry",
+      "preco": 67.00
+    },
+    {
+      "id": 33,
+      "categoria_id": 8,
+      "nome": "Art. Salada",
+      "descricao": "Pão brioche, hambúrguer 150g, muito queijo, salada, maionese da casa",
+      "preco": 26.90
+    },
+    {
+      "id": 34,
+      "categoria_id": 8,
+      "nome": "Art. Bacon",
+      "descricao": "Pão brioche, hambúrguer 150g, muito bacon, queijo, salada, maionese",
+      "preco": 30.90
+    },
+    {
+      "id": 35,
+      "categoria_id": 8,
+      "nome": "Art. Cheddar",
+      "descricao": "Pão brioche, hambúrguer 150g, bacon, queijo, fatias de cheddar, salada",
+      "preco": 36.90
+    },
+    {
+      "id": 36,
+      "categoria_id": 8,
+      "nome": "Art. Queijo",
+      "descricao": "Pão brioche, hambúrguer 150g, rodela de queijo empanada, salada",
+      "preco": 39.90
+    },
+    {
+      "id": 37,
+      "categoria_id": 9,
+      "nome": "Kids",
+      "descricao": "Hambúrguer, molho especial, cheddar, fatias de queijo + batata frita + refri lata",
+      "preco": 33.50
+    },
+    {
+      "id": 38,
+      "categoria_id": 9,
+      "nome": "X-Havaí",
+      "descricao": "Hambúrguer, abacaxi caramelizado, queijo provolone, bacon, calabresa e salada",
+      "preco": 36.00
+    },
+    {
+      "id": 39,
+      "categoria_id": 9,
+      "nome": "X-Onion",
+      "descricao": "Hambúrguer, anéis de cebola, bacon, queijo e cheddar, barbecue, salada",
+      "preco": 32.90
+    },
+    {
+      "id": 40,
+      "categoria_id": 10,
+      "nome": "Dog Simples",
+      "descricao": "Pão, salsicha, vinagrete, ketchup, mostarda, maionese da casa e batata palha",
+      "preco": 15.00
+    },
+    {
+      "id": 41,
+      "categoria_id": 10,
+      "nome": "Dog Frango",
+      "descricao": "Pão, salsicha, frango desfiado, vinagrete, ketchup, mostarda, maionese e batata palha",
+      "preco": 16.00
+    },
+    {
+      "id": 42,
+      "categoria_id": 10,
+      "nome": "Dog Misto",
+      "descricao": "Pão, salsicha, presunto, mussarela, vinagrete, ketchup, mostarda, maionese e batata palha",
+      "preco": 16.00
+    },
+    {
+      "id": 43,
+      "categoria_id": 10,
+      "nome": "Dog Bacon",
+      "descricao": "Pão, salsicha, bacon, vinagrete, ketchup, mostarda, maionese e batata palha",
+      "preco": 16.00
+    },
+    {
+      "id": 44,
+      "categoria_id": 10,
+      "nome": "Dog Calabresa com Bacon",
+      "descricao": "Pão, salsicha, calabresa, bacon, vinagrete, ketchup, mostarda, maionese e batata palha",
+      "preco": 17.00
+    },
+    {
+      "id": 45,
+      "categoria_id": 10,
+      "nome": "Dog à Bolonhesa",
+      "descricao": "Pão, salsicha, carne moída, queijo, vinagrete, ketchup, mostarda, maionese e batata palha",
+      "preco": 20.00
+    },
+    {
+      "id": 46,
+      "categoria_id": 10,
+      "nome": "Dog Tudão",
+      "descricao": "Pão, duas salsichas, presunto, mussarela, calabresa, bacon, frango desfiado, milho, batata palha, ketchup, mostarda, cheddar e maionese",
+      "preco": 27.00
+    },
+    {
+      "id": 47,
+      "categoria_id": 10,
+      "nome": "Dog Alcatra",
+      "descricao": "Alcatra picada em tiras, bacon, 2 salsichas, vinagrete, milho, queijo e batata palha",
+      "preco": 35.00
+    },
+    {
+      "id": 48,
+      "categoria_id": 11,
+      "nome": "Porção de Tilápia (800g)",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 55.00
+    },
+    {
+      "id": 49,
+      "categoria_id": 11,
+      "nome": "Batata Frita com Cheddar e Bacon (1kg)",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 40.00
+    },
+    {
+      "id": 50,
+      "categoria_id": 11,
+      "nome": "Mandioca com Cheddar e Bacon (1kg)",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 40.00
+    },
+    {
+      "id": 51,
+      "categoria_id": 11,
+      "nome": "Meia Porção com Cheddar e Bacon",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 40.00
+    },
+    {
+      "id": 52,
+      "categoria_id": 11,
+      "nome": "Tulipa Empanada com Gergelim",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 40.00
+    },
+    {
+      "id": 53,
+      "categoria_id": 11,
+      "nome": "Calabresa Acebolada",
+      "descricao": "Acompanha molho defumado da casa, maionese de alho e limão",
+      "preco": 40.00
+    },
+    {
+      "id": 54,
+      "categoria_id": 11,
+      "nome": "Porção Fria",
+      "descricao": "Presunto, mussarela em cubos, orégano e limão",
+      "preco": 35.00
+    },
+    {
+      "id": 55,
+      "categoria_id": 12,
+      "nome": "Batata Frita Pequena",
+      "descricao": null,
+      "preco": 8.90
+    },
+    {
+      "id": 56,
+      "categoria_id": 12,
+      "nome": "Batata Frita Grande",
+      "descricao": null,
+      "preco": 12.90
+    },
+    {
+      "id": 57,
+      "categoria_id": 13,
+      "nome": "Fanta Lata",
+      "descricao": null,
+      "preco": 6.00
+    },
+    {
+      "id": 58,
+      "categoria_id": 13,
+      "nome": "Coca-Cola Lata",
+      "descricao": null,
+      "preco": 6.00
+    },
+    {
+      "id": 59,
+      "categoria_id": 13,
+      "nome": "Guaraná Antártica Lata",
+      "descricao": null,
+      "preco": 6.00
+    },
+    {
+      "id": 60,
+      "categoria_id": 13,
+      "nome": "Conquista",
+      "descricao": null,
+      "preco": 8.70
+    },
+    {
+      "id": 61,
+      "categoria_id": 13,
+      "nome": "Coca-Cola 1L",
+      "descricao": null,
+      "preco": 11.00
+    },
+    {
+      "id": 62,
+      "categoria_id": 13,
+      "nome": "Coca-Cola 2L",
+      "descricao": null,
+      "preco": 16.00
+    },
+    {
+      "id": 63,
+      "categoria_id": 13,
+      "nome": "Guaraná Conquista 2L",
+      "descricao": null,
+      "preco": 8.00
+    },
+    {
+      "id": 64,
+      "categoria_id": 14,
+      "nome": "Brahma Lata",
+      "descricao": null,
+      "preco": 5.50
+    },
+    {
+      "id": 65,
+      "categoria_id": 14,
+      "nome": "Skol Lata",
+      "descricao": null,
+      "preco": 5.50
+    },
+    {
+      "id": 66,
+      "categoria_id": 14,
+      "nome": "Antártica Boa Lata",
+      "descricao": null,
+      "preco": 5.50
+    },
+    {
+      "id": 67,
+      "categoria_id": 14,
+      "nome": "Antártica Boa Litrão",
+      "descricao": null,
+      "preco": 15.00
+    },
+    {
+      "id": 68,
+      "categoria_id": 14,
+      "nome": "Heineken Long Neck 330ml",
+      "descricao": null,
+      "preco": 10.00
+    },
+    {
+      "id": 69,
+      "categoria_id": 15,
+      "nome": "Água sem Gás",
+      "descricao": null,
+      "preco": 3.00
+    },
+    {
+      "id": 70,
+      "categoria_id": 15,
+      "nome": "Água com Gás",
+      "descricao": null,
+      "preco": 3.50
+    }
+  ]
+}
