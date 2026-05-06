@@ -85,9 +85,9 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
 
   return (
     <>
-      <article className="grid grid-cols-[88px_1fr] gap-3 border-b border-zinc-200 bg-white py-4 last:border-b-0 sm:grid-cols-[112px_1fr]">
-        <div className="relative aspect-square overflow-hidden rounded-lg bg-zinc-100">
-          <Image src={productImage} alt={product.name} fill className="object-cover" sizes="128px" />
+      <article className="group grid grid-cols-[88px_1fr] gap-3 border-b border-zinc-100 bg-white px-4 py-4 transition-all duration-200 hover:bg-amber-50/40 last:border-b-0 sm:grid-cols-[112px_1fr]">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-amber-50 ring-1 ring-amber-100/60 transition-all duration-200 group-hover:shadow-card">
+          <Image src={productImage} alt={product.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="128px" />
         </div>
         <div className="flex min-w-0 flex-col justify-between gap-3">
           <div>
@@ -97,11 +97,11 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
             ) : null}
           </div>
           <div className="flex items-center justify-between gap-3">
-            <strong className="text-base text-zinc-950">{formatCurrency(Number(product.price))}</strong>
+            <strong className="text-base font-black text-ember-600">{formatCurrency(Number(product.price))}</strong>
             <button
               type="button"
               onClick={handleAdd}
-              className="flex h-10 min-w-10 items-center justify-center rounded-full bg-ketchup px-3 font-bold text-white transition hover:bg-red-700"
+              className="flex h-10 min-w-10 items-center justify-center rounded-full bg-ketchup px-3 font-bold text-white shadow-sm transition-all duration-200 hover:bg-red-700 hover:shadow-warm hover:scale-110 active:scale-95"
               aria-label={`Adicionar ${product.name}`}
             >
               <Plus size={21} aria-hidden="true" />
@@ -111,14 +111,15 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
       </article>
 
       {confirmOpen ? (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/45 p-3 sm:items-center">
+        <div className="fixed inset-0 z-50 flex items-end justify-center p-3 sm:items-center">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in" onClick={() => setConfirmOpen(false)} />
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby={`confirm-options-title-${product.id}`}
-            className="w-full max-w-md rounded-lg bg-white shadow-xl"
+            className="modal-enter relative w-full max-w-md rounded-2xl bg-white shadow-soft"
           >
-            <div className="flex items-start justify-between gap-3 border-b border-zinc-100 p-4">
+            <div className="flex items-start justify-between gap-3 border-b border-zinc-100 p-5">
               <div className="min-w-0">
                 <h3 id={`confirm-options-title-${product.id}`} className="text-lg font-black leading-tight text-zinc-950">
                   Adicionar produto
@@ -128,26 +129,26 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
               <button
                 type="button"
                 onClick={() => setConfirmOpen(false)}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-900"
                 aria-label="Fechar"
               >
                 <X size={20} aria-hidden="true" />
               </button>
             </div>
-            <div className="p-4">
+            <div className="p-5">
               <p className="text-sm font-semibold leading-6 text-zinc-700">Deseja adicionar opcionais a este item?</p>
-              <div className="mt-4 grid grid-cols-2 gap-2">
+              <div className="mt-4 grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={handleAddWithoutOptions}
-                  className="h-12 rounded-lg border border-zinc-200 bg-white px-4 font-black text-zinc-800"
+                  className="h-12 rounded-xl border border-zinc-200 bg-white px-4 font-bold text-zinc-700 transition hover:bg-zinc-50 active:scale-95"
                 >
                   Nao
                 </button>
                 <button
                   type="button"
                   onClick={handleOpenOptions}
-                  className="h-12 rounded-lg bg-ketchup px-4 font-black text-white transition hover:bg-red-700"
+                  className="h-12 rounded-xl bg-ketchup px-4 font-black text-white shadow-sm transition hover:bg-red-700 hover:shadow-warm active:scale-95"
                 >
                   Sim
                 </button>
@@ -158,14 +159,15 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
       ) : null}
 
       {optionsOpen ? (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/45 p-3 sm:items-center">
+        <div className="fixed inset-0 z-50 flex items-end justify-center p-3 sm:items-center">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in" onClick={() => setOptionsOpen(false)} />
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby={`options-title-${product.id}`}
-            className="max-h-[92vh] w-full max-w-lg overflow-hidden rounded-lg bg-white shadow-xl"
+            className="modal-enter relative max-h-[92vh] w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-soft"
           >
-            <div className="flex items-start justify-between gap-3 border-b border-zinc-100 p-4">
+            <div className="flex items-start justify-between gap-3 border-b border-zinc-100 p-5">
               <div className="min-w-0">
                 <h3 id={`options-title-${product.id}`} className="text-lg font-black leading-tight text-zinc-950">
                   Adicionais
@@ -175,19 +177,23 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
               <button
                 type="button"
                 onClick={() => setOptionsOpen(false)}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-900"
                 aria-label="Fechar adicionais"
               >
                 <X size={20} aria-hidden="true" />
               </button>
             </div>
 
-            <div className="max-h-[55vh] overflow-y-auto p-4">
+            <div className="max-h-[55vh] overflow-y-auto p-5">
               <div className="grid gap-2">
                 {productOptions.map((option) => (
                   <label
                     key={option.id}
-                    className="flex min-h-12 items-center gap-3 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800"
+                    className={`flex min-h-12 items-center gap-3 rounded-xl border px-3 py-2 text-sm transition-all duration-200 cursor-pointer ${
+                      selectedOptionIds.includes(option.id)
+                        ? "border-ketchup/30 bg-red-50 text-ketchup"
+                        : "border-zinc-200 bg-white text-zinc-800 hover:border-amber-200 hover:bg-amber-50/50"
+                    }`}
                   >
                     <input
                       type="checkbox"
@@ -202,23 +208,23 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
               </div>
             </div>
 
-            <div className="border-t border-zinc-100 p-4">
+            <div className="border-t border-zinc-100 p-5">
               <div className="flex items-center justify-between text-zinc-950">
                 <span className="font-bold">Total do item</span>
-                <strong className="text-xl">{formatCurrency(Number(product.price) + selectedOptionsTotal)}</strong>
+                <strong className="text-xl font-black text-ember-600">{formatCurrency(Number(product.price) + selectedOptionsTotal)}</strong>
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="mt-3 grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => setOptionsOpen(false)}
-                  className="h-12 rounded-lg border border-zinc-200 bg-white px-4 font-black text-zinc-800"
+                  className="h-12 rounded-xl border border-zinc-200 bg-white px-4 font-bold text-zinc-700 transition hover:bg-zinc-50 active:scale-95"
                 >
                   Cancelar
                 </button>
                 <button
                   type="button"
                   onClick={handleConfirmOptions}
-                  className="h-12 rounded-lg bg-ketchup px-4 font-black text-white transition hover:bg-red-700"
+                  className="h-12 rounded-xl bg-ketchup px-4 font-black text-white shadow-sm transition hover:bg-red-700 hover:shadow-warm active:scale-95"
                 >
                   Adicionar
                 </button>

@@ -2,9 +2,11 @@ export type Category = {
   id: string;
   name: string;
   slug: string;
+  description: string | null;
   sort_order: number;
-  active: boolean;
+  is_active: boolean;
   created_at: string;
+  updated_at: string;
 };
 
 export type Product = {
@@ -14,9 +16,11 @@ export type Product = {
   description: string | null;
   price: number;
   image_url: string | null;
-  available: boolean;
+  badge: string | null;
+  is_active: boolean;
   sort_order: number;
   created_at: string;
+  updated_at: string;
   categories?: Pick<Category, "id" | "name" | "slug" | "sort_order"> | null;
 };
 
@@ -72,9 +76,11 @@ export type Database = {
           id?: string;
           name: string;
           slug: string;
+          description?: string | null;
           sort_order?: number;
-          active?: boolean;
+          is_active?: boolean;
           created_at?: string;
+          updated_at?: string;
         };
         Update: Partial<Category>;
         Relationships: [];
@@ -88,9 +94,11 @@ export type Database = {
           description?: string | null;
           price: number;
           image_url?: string | null;
-          available?: boolean;
+          badge?: string | null;
+          is_active?: boolean;
           sort_order?: number;
           created_at?: string;
+          updated_at?: string;
         };
         Update: Partial<Product>;
         Relationships: [
@@ -130,6 +138,7 @@ export type Database = {
           quantity: number;
           unit_price: number;
           subtotal: number;
+          notes: string | null;
           created_at: string;
         };
         Insert: {
@@ -140,6 +149,7 @@ export type Database = {
           quantity: number;
           unit_price: number;
           subtotal: number;
+          notes?: string | null;
           created_at?: string;
         };
         Update: Partial<{
@@ -150,6 +160,7 @@ export type Database = {
           quantity: number;
           unit_price: number;
           subtotal: number;
+          notes: string | null;
           created_at: string;
         }>;
         Relationships: [

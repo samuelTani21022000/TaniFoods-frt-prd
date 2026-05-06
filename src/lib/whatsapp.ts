@@ -9,55 +9,79 @@ const paymentLabels = {
   cartao_debito: "Cartao de debito"
 };
 
+const SEPARATOR = "---------------";
+
+const DELIVERY_FEE = 3;
+
 export function buildWhatsAppMessage(orderId: string, checkout: CheckoutData, items: CartItem[], total: number): string {
   const deliveryLabel = checkout.deliveryType === "delivery" ? "Entrega" : "Retirada";
-  const lines = [
-    "Novo pedido - TaniFoods",
-    "",
-    `Numero do pedido: #${orderShortId(orderId)}`,
-    `Cliente: ${checkout.customerName}`,
-    `Telefone: ${checkout.customerPhone}`,
-    `Tipo de entrega: ${deliveryLabel}`,
-    checkout.address ? `Endereco: ${checkout.address}` : null,
-    "",
-    "Itens:",
-    ...items.map((item) => {
-      const subtotal = getItemSubtotal(item);
-      const baseSubtotal = Number(item.product.price) * item.quantity;
-      const unitPrice = getItemUnitPrice(item);
-      const baseLine =
-        item.quantity > 1
-          ? `  Produto: ${formatCurrency(Number(item.product.price))} x ${item.quantity} = ${formatCurrency(baseSubtotal)}`
-          : `  Produto: ${formatCurrency(Number(item.product.price))}`;
-      const options =
-        item.options.length > 0
-          ? `\n  Itens adicionais:\n${item.options
-              .map((option) => {
-                const optionSubtotal = Number(option.price) * item.quantity;
-                const optionValue =
-                  item.quantity > 1
-                    ? `${formatCurrency(Number(option.price))} x ${item.quantity} = ${formatCurrency(optionSubtotal)}`
-                    : formatCurrency(Number(option.price));
+  const isDelivery = checkout.deliveryType === "delivery";
+  const subtotal = total - (isDelivery ? DELIVERY_FEE : 0);
 
-                return `  - ${option.name}: ${optionValue}`;
-              })
-              .join("\n")}`
-          : "\n  Sem adicionais";
-      const totalLine =
-        item.quantity > 1
-          ? `Total do item: ${formatCurrency(unitPrice)} cada - ${formatCurrency(subtotal)}`
-          : `Total do item: ${formatCurrency(subtotal)}`;
-
-      return `${item.quantity}x ${item.product.name}\n${baseLine}${options}\n  ${totalLine}`;
-    }),
+  const header = [
+    "🛒 *Novo pedido - TaniFoods*",
     "",
-    `Forma de pagamento: ${paymentLabels[checkout.paymentMethod]}`,
-    checkout.notes ? `Observacoes: ${checkout.notes}` : "Observacoes: Nenhuma",
-    "",
-    `Total: ${formatCurrency(total)}`
+    `📋 *Pedido:* #${orderShortId(orderId)}`,
+    `👤 *Cliente:* ${checkout.customerName}`,
+    `📱 *Telefone:* ${checkout.customerPhone}`,
+    `🚚 *Entrega:* ${deliveryLabel}`,
+    checkout.address ? `📍 *Endereco:* ${checkout.address}` : null,
   ].filter(Boolean);
 
-  return lines.join("\n");
+  const itemBlocks = items.map((item) => {
+    const subtotal = getItemSubtotal(item);
+    const unitPrice = getItemUnitPrice(item);
+    const baseSubtotal = Number(item.product.price) * item.quantity;
+
+    const lines = [`🍔 *${item.quantity}x ${item.product.name}*`];
+
+    if (item.quantity > 1) {
+      lines.push(`  Produto: ${formatCurrency(Number(item.product.price))} x ${item.quantity} = ${formatCurrency(baseSubtotal)}`);
+    } else {
+      lines.push(`  Produto: ${formatCurrency(Number(item.product.price))}`);
+    }
+
+    if (item.options.length > 0) {
+      lines.push("  Itens adicionais:");
+      item.options.forEach((option) => {
+        const optionSubtotal = Number(option.price) * item.quantity;
+        const optionValue =
+          item.quantity > 1
+            ? `${formatCurrency(Number(option.price))} x ${item.quantity} = ${formatCurrency(optionSubtotal)}`
+            : formatCurrency(Number(option.price));
+        lines.push(`    ➕ ${option.name}: ${optionValue}`);
+      });
+    } else {
+      lines.push("  Sem adicionais");
+    }
+
+    if (item.quantity > 1) {
+      lines.push(`  💰 Total: ${formatCurrency(unitPrice)} cada - ${formatCurrency(subtotal)}`);
+    } else {
+      lines.push(`  💰 Total: ${formatCurrency(subtotal)}`);
+    }
+
+    return lines.join("\n");
+  });
+
+  const footer = [
+    `💳 *Pagamento:* ${paymentLabels[checkout.paymentMethod]}`,
+    checkout.notes ? `📝 *Observacoes:* ${checkout.notes}` : "📝 *Observacoes:* Nenhuma",
+    "",
+    `📦 Subtotal: ${formatCurrency(subtotal)}`,
+    isDelivery ? `🛵 Taxa de entrega: ${formatCurrency(DELIVERY_FEE)}` : null,
+    `💵 *TOTAL: ${formatCurrency(total)}*`,
+  ].filter(Boolean);
+
+  return [
+    ...header,
+    "",
+    SEPARATOR,
+    ...itemBlocks.join(`\n${SEPARATOR}\n`).split("\n"),
+    SEPARATOR,
+    "",
+    ...footer,
+  ].join("\n");
 }
 
 export function buildWhatsAppUrl(message: string): string {

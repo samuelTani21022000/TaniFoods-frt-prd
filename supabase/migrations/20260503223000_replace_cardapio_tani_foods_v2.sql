@@ -12,7 +12,7 @@ where product_id is not null;
 delete from public.products;
 delete from public.categories;
 
-insert into public.categories (name, slug, sort_order, active)
+insert into public.categories (name, slug, sort_order, is_active)
 values
   ('Pastéis', 'pasteis', 1, true),
   ('Pastéis Doces', 'pasteis-doces', 2, true),
@@ -25,8 +25,8 @@ values
   ('Cervejas', 'cervejas', 9, true),
   ('Água', 'agua', 10, true);
 
-insert into public.products (category_id, name, description, price, image_url, sort_order, available)
-select c.id, p.name, p.description, p.price, p.image_url, p.sort_order, p.available
+insert into public.products (category_id, name, description, price, image_url, sort_order, is_active)
+select c.id, p.name, p.description, p.price, p.image_url, p.sort_order, p.is_active
 from (
   values
   ('pasteis', 'Carne', 'Carne moída e queijo', 13.00, null, 1, true),
@@ -99,7 +99,7 @@ from (
   ('cervejas', 'Heineken Long Neck 330ml', '', 10.00, null, 68, true),
   ('agua', 'Água sem Gás', '', 3.00, null, 69, true),
   ('agua', 'Água com Gás', '', 3.50, null, 70, true)
-) as p(category_slug, name, description, price, image_url, sort_order, available)
+) as p(category_slug, name, description, price, image_url, sort_order, is_active)
 join public.categories c on c.slug = p.category_slug;
 
 commit;

@@ -11,9 +11,9 @@ export function OrderSuccess({ orderId }: OrderSuccessProps) {
   }
 
   return (
-    <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-green-900">
+    <div className="animate-scale-in rounded-xl border border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 p-4 text-green-900 shadow-card">
       <div className="flex items-center gap-2 font-black">
-        <CheckCircle2 size={21} aria-hidden="true" />
+        <CheckCircle2 size={21} className="text-green-500" aria-hidden="true" />
         Pedido salvo
       </div>
       <p className="mt-1 text-sm">Numero #{orderShortId(orderId)}. O WhatsApp foi aberto com a mensagem pronta.</p>
